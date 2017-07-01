@@ -1,0 +1,14 @@
+---
+- name: Unregister host(s) from Satellite
+  hosts: all
+  tasks:
+
+    - name: Stop and disable Katello agent
+      service:
+        name: goferd
+        state: stopped
+        enabled: no
+
+    - name: Unregister with subscription-manager
+      redhat_subscription:
+state: absent
