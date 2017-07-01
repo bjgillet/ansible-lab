@@ -1,0 +1,30 @@
+---
+- name: Register host(s) to Satellite
+  hosts: all
+  tasks:
+    - name: Install Satellite config and CA certificates
+      yum:
+        name: http://{{ satellite_server }}/pub/katello-ca-consumer-latest.noarch.rpm
+        state: present
+      when: satellite_server is defined
+
+    - name: Register with subscription-manager
+      redhat_subscription:
+        org_id: "{{ satellite_organization }}"
+        activationkey: "{{ satellite_activation_key }}"
+
+    - name: Update all packages
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Install Katello agent
+      yum:
+        name: katello-agent
+        state: present
+
+    - name: Start Katello agent
+      service:
+        name: goferd
+        state: started
+enabled: yes
