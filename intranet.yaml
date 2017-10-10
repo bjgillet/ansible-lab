@@ -1,6 +1,6 @@
 ---
 - name: intranet services
-  hosts: servera.lab.example.com
+  hosts: all
   become: yes
 
   tasks:
@@ -40,16 +40,7 @@
     - block:
       - name: test html page
         copy:
-          content: "Welcome to the example.com intranet!\n"
+          content: "Welcome to the ansible test page !\n"
           dest: /var/www/html/index.html
 
-- name: test
-  hosts: localhost
-  
-  tasks:
-    
-    - name: connect to intranet
-      uri:
-        url: http://servera.lab.example.com
-        status_code: 200
 ...
