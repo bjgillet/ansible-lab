@@ -2,7 +2,8 @@
 - name: intranet services
   hosts: all
   become: yes
-
+  vars:
+    index_text = "default text !\n"
   tasks:
 
     - block:
@@ -40,7 +41,7 @@
     - block:
       - name: test html page
         copy:
-          content: "Welcome to the ansible test page !\n"
+          content: "{{ index_text }}"
           dest: /var/www/html/index.html
 
 ...
