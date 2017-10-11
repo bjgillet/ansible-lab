@@ -1,0 +1,2 @@
+---
+index_text: "Welcome at default {{ ansible_fqdn }} ansible setup page." 
