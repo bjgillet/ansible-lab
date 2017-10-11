@@ -35,9 +35,9 @@
     enabled: true
     state: started
 
-- name: test html page
+- name: create test html page
   copy:
-    content: "{{ index_text }}"
+    content: "{{ index_text }} - updated on {{ ansible_date_time.iso8601 }} "
     dest: /var/www/html/index.html
 
 ...
