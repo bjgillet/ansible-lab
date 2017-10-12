@@ -3,16 +3,13 @@
   hosts: all
   become: yes
 
-  vars:
-    index_text: "playbook default text !\n"
-  
   tasks:
     - name: Includes vars
       include_vars: vars/context.yml
 
     - name: Includes intra01
-      include: tasks/intra01.yml
+      include_tasks: tasks/intra01.yml
 
     - name: Includes intra02
-      include: tasks/intra02.yml
+      include_tasks: tasks/intra02.yml
 
