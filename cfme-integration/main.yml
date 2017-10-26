@@ -1,0 +1,12 @@
+---
+- name: deploy intra services
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Includes vars
+      include_vars: vars/context.yml
+
+    - name: Includes intra01
+      include_tasks: tasks/intra01.yml
+

@@ -1,0 +1,27 @@
+---
+- name : latest httpd version installed
+  yum:
+    name: httpd
+    state: latest
+
+- name: httpd enabled and running
+  service:
+    name: httpd
+    enabled: true
+    state: started
+
+- name: firewalld enabled and running
+  service:
+    name: firewalld
+    enabled: true
+    state: started
+
+- name: create test html page
+  template:
+    src: templates/index.j2
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
+
+...
