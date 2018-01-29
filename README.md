@@ -1,4 +1,4 @@
-# ansible-lab
+# ansible-background-tests
 <H2>Ansible PoC playbooks</H2>
 This is a set of very basic playbooks I used for Ansible and Ansible Tower integration testing.
 <br>
