@@ -4,10 +4,12 @@
   become: yes
 
   tasks:
-    - block:
-      - name: test html page
-        copy:
-          content: "Welcome to the ansible test page !\n"
-          dest: /etc/motd
+    - name: include vars
+      include_vars: vars/context.yml
+
+    - name: test html page
+      copy:
+        content: "Welcome to the ansible test page !\n"
+        dest: /etc/motd
 
 ...
