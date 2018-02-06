@@ -9,7 +9,7 @@
 
     - name: test html page
       copy:
-        content: "Welcome to the ansible test page !\n"
+        content: "Welcome to {{ motd_text }}"
         dest: /etc/motd
 
 ...
