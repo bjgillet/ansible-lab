@@ -1,0 +1,15 @@
+---
+- name: intranet services
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: include vars
+      include_vars: vars/context.yml
+
+    - name: test html page
+      copy:
+        content: "Welcome to {{ motd_text }}"
+        dest: /etc/motd
+
+...

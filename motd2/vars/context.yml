@@ -1,0 +1,2 @@
+---
+motd_text: "Welcome at {{ ansible_fqdn }} updated {{ ansible_date_time.iso8601 }}" 
