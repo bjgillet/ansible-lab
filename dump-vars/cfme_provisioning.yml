@@ -1,0 +1,12 @@
+- name: Placeholder playbook
+  hosts: all
+  gather_facts: false
+  vars:
+    dump_file: /tmp/ansiblevars
+
+  tasks:
+    - name: Dump all vars in {{ dump_file }}
+      template:
+        src: templates/cloudformsdump.j2
+        dest: '{{ dump_file }}'
+      when: dump_file is defined

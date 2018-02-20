@@ -1,0 +1,8 @@
+CloudForms Variables :
+--------------------------------
+
+{%for k in hostvars[inventory_hostname] %}
+{%if k.startswith('le_test') %}
+{{ k }}: {{ hostvars[inventory_hostname][k] }}
+{%endif%}
+{%endfor%}
