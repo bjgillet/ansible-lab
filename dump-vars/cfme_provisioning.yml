@@ -1,5 +1,5 @@
 - name: Placeholder playbook
-  hosts: all
+  hosts: "{{ target_machine | default('all') }}"
   gather_facts: false
   vars:
     dump_file: /tmp/ansiblevars
@@ -9,4 +9,5 @@
       template:
         src: templates/cloudformsdump.j2
         dest: '{{ dump_file }}'
+	backup: true
       when: dump_file is defined
