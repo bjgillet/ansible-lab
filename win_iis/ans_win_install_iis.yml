@@ -12,3 +12,5 @@
         restart: yes
         include_sub_features: yes
         include_management_tools: yes
+      environment:
+        http_proxy: http://proxy.example.com:8080
