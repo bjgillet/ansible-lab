@@ -3,6 +3,7 @@
   gather_facts: no
   tasks:
   - win_domain_membership:
+      domain_admin_user: {{ domain_admin_user }}
       state: domain
     register: domain_state
 
