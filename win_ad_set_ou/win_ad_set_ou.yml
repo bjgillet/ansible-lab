@@ -3,6 +3,7 @@
   gather_facts: no
   tasks:
   - win_domain_membership:
+      state: domain
     register: domain_state
 
   - win_reboot:
