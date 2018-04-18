@@ -1,4 +1,4 @@
-- hosts: winclient
+- hosts: all
   gather_facts: no
   tasks:
   - win_domain_membership:
