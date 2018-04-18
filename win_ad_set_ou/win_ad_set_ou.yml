@@ -1,10 +1,13 @@
-- name: Moves VM to target OU
-  hosts: all
+- hosts: winclient
   gather_facts: no
   tasks:
   - win_domain_membership:
+      dns_domain_name: "{{ dns_domain_name }}"
+      hostname: "{{ hostname }}"
       domain_admin_user: "{{ domain_admin_user }}"
-      state: domain
+      domain_admin_password: "{{ domain_admin_password }}"
+      domain_ou_path: "{{ domain_ou_path }}"
+      state: "{{ state }}"
     register: domain_state
 
   - win_reboot:
