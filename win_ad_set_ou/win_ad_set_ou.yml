@@ -1,0 +1,9 @@
+- name: Moves VM to target OU
+  hosts: all
+  gather_facts: no
+  tasks:
+  - win_domain_membership:
+    register: domain_state
+
+  - win_reboot:
+    when: domain_state.reboot_required
